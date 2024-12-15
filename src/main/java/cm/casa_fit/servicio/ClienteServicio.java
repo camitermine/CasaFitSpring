@@ -1,7 +1,7 @@
 package cm.casa_fit.servicio;
 
 import cm.casa_fit.modelo.Cliente;
-import cm.casa_fit.repositorio.IClienteRepositorio;
+import cm.casa_fit.repositorio.ClienteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -10,8 +10,7 @@ import java.util.List;
 public class ClienteServicio implements IClienteServicio {
 
     @Autowired
-
-    private IClienteRepositorio clienteRepositorio;
+    private ClienteRepositorio clienteRepositorio;
 
     @Override
     public List<Cliente> listarClientes() {
@@ -26,6 +25,7 @@ public class ClienteServicio implements IClienteServicio {
     }
 
     //si el id=null entonces sera un insert, sino un update
+
     @Override
     public void guardarCliente(Cliente cliente) {
         clienteRepositorio.save(cliente);
@@ -33,7 +33,6 @@ public class ClienteServicio implements IClienteServicio {
 
     @Override
     public void eliminarCliente(Cliente cliente) {
-
         clienteRepositorio.delete(cliente);
 
     }
